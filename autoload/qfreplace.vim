@@ -48,12 +48,12 @@ function! s:doReplace()
   let replace = getline(0, '$')
   let i = 0
   for e in qf
-    execute 'edit' '#' . e.bufnr
+    execute e.bufnr 'buffer'
     call setline(e.lnum, replace[i])
     update
     let i += 1
   endfor
-  execute 'edit' '#' . bufnr
+  execute bufnr 'buffer'
 endfunction
 
 let &cpo = s:save_cpo
