@@ -20,7 +20,10 @@ function! s:openReplaceBuffer()
   endif
   if !opened_p
     execute g:qfreplace_bufopen_cmd '[qfreplace]'
-    setlocal noswapfile bufhidden=hide buftype=acwrite
+    if !exists('b:qfreplace_orig_qflist')  " is the buffer newly created?
+      setlocal noswapfile bufhidden=hide buftype=acwrite
+      autocmd BufWriteCmd <buffer> nested call s:doReplace()
+    endif
     call setbufvar('#', 'qfreplace_bufnr', bufnr('%'))
   endif
 
@@ -31,8 +34,6 @@ function! s:openReplaceBuffer()
   endfor
   1 delete _
   setlocal nomodified
-
-  autocmd BufWriteCmd <buffer> nested call s:doReplace()
 endfunction
 
 function! s:doReplace()
