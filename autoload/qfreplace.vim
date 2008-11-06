@@ -47,10 +47,14 @@ function! s:doReplace()
   let bufnr = bufnr('%')
   let replace = getline(0, '$')
   let i = 0
+  let prev_bufnr = -1
   for e in qf
     execute e.bufnr 'buffer'
     call setline(e.lnum, replace[i])
-    update
+    if prev_bufnr != e.bufnr
+      update
+    endif
+    let prev_bufnr = e.bufnr
     let i += 1
   endfor
   execute bufnr 'buffer'
