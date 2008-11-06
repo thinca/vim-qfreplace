@@ -20,7 +20,7 @@ function! s:openReplaceBuffer()
   endif
   if !opened_p
     execute g:qfreplace_bufopen_cmd '[qfreplace]'
-    setlocal noswapfile bufhidden=hide
+    setlocal noswapfile bufhidden=hide buftype=acwrite
     call setbufvar('#', 'qfreplace_bufnr', bufnr('%'))
   endif
 
