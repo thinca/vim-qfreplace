@@ -32,8 +32,8 @@ License: クリエイティブ・コモンズの表示 2.1 日本ライセンス
 設定						*qfreplace-settings*
 
 						*g:qfreplace_open_cmd*
-g:qfreplace_open_cmd		(default: "new")
-	編集バッファを開くコマンド。
+g:qfreplace_open_cmd		(default: "split")
+	置換バッファ用のウィンドウを開くコマンド。
 
 ==============================================================================
 更新履歴					*qfreplace-changelog*

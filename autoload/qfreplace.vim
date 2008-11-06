@@ -2,29 +2,30 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 if !exists('g:qfreplace_open_cmd')
-  let g:qfreplace_open_cmd = 'new'
+  let g:qfreplace_open_cmd = 'split'
 endif
+let s:qfreplace_bufnr = -1
 
 function! qfreplace#start()
   call s:openReplaceBuffer()
 endfunction
 
 function! s:openReplaceBuffer()
-  let opened_p = 0
-  if exists('b:qfreplace_bufnr')
-    let win = bufwinnr(b:qfreplace_bufnr)
+  if bufexists(s:qfreplace_bufnr)
+    let win = bufwinnr(s:qfreplace_bufnr)
     if 0 <= win
       execute win . 'wincmd w'
-      let opened_p = !0
+    else
+      execute g:qfreplace_open_cmd
+      execute s:qfreplace_bufnr 'buffer'
     endif
-  endif
-  if !opened_p
-    execute g:qfreplace_open_cmd '[qfreplace]'
-    if !exists('b:qfreplace_orig_qflist')  " is the buffer newly created?
-      setlocal noswapfile bufhidden=hide buftype=acwrite
-      autocmd BufWriteCmd <buffer> nested call s:doReplace()
-    endif
-    call setbufvar('#', 'qfreplace_bufnr', bufnr('%'))
+  else
+    execute g:qfreplace_open_cmd
+    enew
+    setlocal noswapfile bufhidden=hide buftype=acwrite
+    file `='[qfreplace]'`
+    autocmd BufWriteCmd <buffer> nested call s:doReplace()
+    let s:qfreplace_bufnr = bufnr('%')
   endif
 
   % delete _
