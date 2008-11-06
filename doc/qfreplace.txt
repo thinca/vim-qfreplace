@@ -29,8 +29,8 @@ If mapping to these key sequense exists, the default key mapping is not set.
 ==============================================================================
 SETTINGS					*qfreplace-settings*
 
-						*g:qfreplace_bufopen_cmd*
-g:qfreplace_bufopen_cmd		(default: "new")
+						*g:qfreplace_open_cmd*
+g:qfreplace_open_cmd		(default: "new")
 	The command to open the replacement buffer.
 
 ==============================================================================

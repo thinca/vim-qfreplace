@@ -1,8 +1,8 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-if !exists('g:qfreplace_bufopen_cmd')
-  let g:qfreplace_bufopen_cmd = 'new'
+if !exists('g:qfreplace_open_cmd')
+  let g:qfreplace_open_cmd = 'new'
 endif
 
 function! qfreplace#start()
@@ -19,7 +19,7 @@ function! s:openReplaceBuffer()
     endif
   endif
   if !opened_p
-    execute g:qfreplace_bufopen_cmd '[qfreplace]'
+    execute g:qfreplace_open_cmd '[qfreplace]'
     if !exists('b:qfreplace_orig_qflist')  " is the buffer newly created?
       setlocal noswapfile bufhidden=hide buftype=acwrite
       autocmd BufWriteCmd <buffer> nested call s:doReplace()

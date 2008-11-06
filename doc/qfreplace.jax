@@ -31,8 +31,8 @@ License: クリエイティブ・コモンズの表示 2.1 日本ライセンス
 ==============================================================================
 設定						*qfreplace-settings*
 
-						*g:qfreplace_bufopen_cmd*
-g:qfreplace_bufopen_cmd		(default: "new")
+						*g:qfreplace_open_cmd*
+g:qfreplace_open_cmd		(default: "new")
 	編集バッファを開くコマンド。
 
 ==============================================================================
