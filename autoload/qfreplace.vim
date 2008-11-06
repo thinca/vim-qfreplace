@@ -10,17 +10,19 @@ function! qfreplace#start()
 endfunction
 
 function! s:openReplaceBuffer()
+  let opened_p = 0
   if exists('b:qfreplace_bufnr')
     let win = bufwinnr(b:qfreplace_bufnr)
-    if win < 0
-      execute g:qfreplace_bufopen_cmd b:qfreplace_bufnr
-    else
+    if 0 <= win
       execute win . 'wincmd w'
+      let opened_p = !0
     endif
   endif
-  execute g:qfreplace_bufopen_cmd '[qfreplace]'
-  let b:qfreplace_bufnr = bufnr('%')
-  setlocal noswapfile bufhidden=hide
+  if !opened_p
+    execute g:qfreplace_bufopen_cmd '[qfreplace]'
+    setlocal noswapfile bufhidden=hide
+    call setbufvar('#', 'qfreplace_bufnr', bufnr('%'))
+  endif
 
   let b:qfreplace_orig_qflist = getqflist()
   for e in b:qfreplace_orig_qflist
@@ -40,7 +42,7 @@ function! s:doReplace()
   endif
 
   setlocal nomodified
-  let bufnr = b:qfreplace_bufnr
+  let bufnr = bufnr('%')
   let replace = getline(0, '$')
   let i = 0
   for e in qf
