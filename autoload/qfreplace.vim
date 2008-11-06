@@ -24,6 +24,7 @@ function! s:openReplaceBuffer()
     call setbufvar('#', 'qfreplace_bufnr', bufnr('%'))
   endif
 
+  % delete _
   let b:qfreplace_orig_qflist = getqflist()
   for e in b:qfreplace_orig_qflist
     call append(line('$'), e.text)
