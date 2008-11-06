@@ -28,7 +28,7 @@ function! s:openReplaceBuffer()
   for e in b:qfreplace_orig_qflist
     call append(line('$'), e.text)
   endfor
-  0delete _
+  1 delete _
   setlocal nomodified
 
   autocmd BufWriteCmd <buffer> nested call s:doReplace()
