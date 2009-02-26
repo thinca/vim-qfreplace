@@ -37,6 +37,7 @@ g:qfreplace_open_cmd		(default: "split")
 CHANGELOG					*qfreplace-changelog*
 
 0.2	2009-02-26
+	- Add: Set filetype "qfreplace" in replacement buffer.
 	- Fix: A timing of :update was wrong.
 
 0.1	2008-11-06

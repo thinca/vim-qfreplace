@@ -39,6 +39,7 @@ g:qfreplace_open_cmd		(default: "split")
 更新履歴					*qfreplace-changelog*
 
 0.2	2009-02-26
+	- 追加: 置換バッファにファイルタイプ qfreplace を設定するようにした。
 	- 修正: :update のタイミングがおかしかった。
 
 0.1	2008-11-06

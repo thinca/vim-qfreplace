@@ -25,6 +25,7 @@ function! s:open_replace_window()
     setlocal noswapfile bufhidden=hide buftype=acwrite
     file `='[qfreplace]'`
     autocmd BufWriteCmd <buffer> nested call s:do_replace()
+    setlocal filetype=qfreplace
     let s:qfreplace_bufnr = bufnr('%')
   endif
 
