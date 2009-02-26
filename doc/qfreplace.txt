@@ -14,17 +14,16 @@ For example, you can perform the replacement to results of |:grep|.
 ==============================================================================
 USAGE						*qfreplace-usage*
 
-Press the r key (default) in |quickfix-window| to open the replacement buffer.
-A text of quickfix is inserted in the buffer by a line unit. You can edit it
-freely. Finally it is applied to a file when you save it.
+Execute the |:Qfreplace| command in |quickfix-window| to open the replacement
+buffer.  A text of quickfix is inserted in the buffer by a line unit. You can
+edit it freely. Finally it is applied to a file when you save it.
 
 ==============================================================================
-KEY MAPPINGS					*qfreplace-key-mappings*
+COMMANDS					*qfreplace-command*
 
-If mapping to these key sequense exists, the default key mapping is not set.
-						*<Plug>qfreplace*
-<Plug>qfreplace			(default: r)
-	Open the replacement buffer.
+:Qfreplace					*:Qfreplace*
+			Open the replacement buffer. You can use this only in
+			a |quickfix-window|.
 
 ==============================================================================
 SETTINGS					*qfreplace-settings*
@@ -38,6 +37,7 @@ CHANGELOG					*qfreplace-changelog*
 
 0.2	2009-02-26
 	- Add: Set filetype "qfreplace" in replacement buffer.
+	- Change: Change the interface to command.
 	- Fix: A timing of :update was wrong.
 
 0.1	2008-11-06
