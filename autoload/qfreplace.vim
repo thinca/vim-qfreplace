@@ -52,16 +52,27 @@ function! s:do_replace()
   let i = 0
   let prev_bufnr = -1
   for e in qf
-    if prev_bufnr != -1 && prev_bufnr != e.bufnr
-      execute update
+    if prev_bufnr != e.bufnr
+      if prev_bufnr != -1
+        execute update
+      endif
+      execute e.bufnr 'buffer'
     endif
-    execute e.bufnr 'buffer'
-    call setline(e.lnum, replace[i])
+    if e.text != replace[i]
+      if getline(e.lnum) != e.text
+        echoerr printf('Original text are changed: %s:%d', bufname(e.bufnr),
+          \ e.lnum)
+      else
+        call setline(e.lnum, replace[i])
+        let e.text = replace[i]
+      endif
+    endif
     let prev_bufnr = e.bufnr
     let i += 1
   endfor
   execute update
   execute bufnr 'buffer'
+  call setqflist(qf, 'r')
 endfunction
 
 let &cpo = s:save_cpo

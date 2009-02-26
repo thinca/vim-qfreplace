@@ -37,6 +37,9 @@ CHANGELOG					*qfreplace-changelog*
 
 0.2	2009-02-26
 	- Add: Set filetype "qfreplace" in replacement buffer.
+	- Improve: Strengthens a change check.
+	  - Do nothing at the line where an original text was changed.
+	  - Do not update if not changed.
 	- Change: Change the interface to command.
 	- Change: Use ! mark when writing.
 	- Fix: A timing of :update was wrong.
