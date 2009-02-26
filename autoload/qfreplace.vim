@@ -7,10 +7,10 @@ endif
 let s:qfreplace_bufnr = -1
 
 function! qfreplace#start()
-  call s:openReplaceBuffer()
+  call s:open_replace_window()
 endfunction
 
-function! s:openReplaceBuffer()
+function! s:open_replace_window()
   if bufexists(s:qfreplace_bufnr)
     let win = bufwinnr(s:qfreplace_bufnr)
     if 0 <= win
@@ -24,7 +24,7 @@ function! s:openReplaceBuffer()
     enew
     setlocal noswapfile bufhidden=hide buftype=acwrite
     file `='[qfreplace]'`
-    autocmd BufWriteCmd <buffer> nested call s:doReplace()
+    autocmd BufWriteCmd <buffer> nested call s:do_replace()
     let s:qfreplace_bufnr = bufnr('%')
   endif
 
@@ -37,7 +37,7 @@ function! s:openReplaceBuffer()
   setlocal nomodified
 endfunction
 
-function! s:doReplace()
+function! s:do_replace()
   let qf = b:qfreplace_orig_qflist " for easily access
   if line('$') != len(qf)
     throw printf('Illegal edit: line number was changed from %d to %d.',
