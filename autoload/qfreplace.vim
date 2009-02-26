@@ -50,14 +50,15 @@ function! s:do_replace()
   let i = 0
   let prev_bufnr = -1
   for e in qf
-    execute e.bufnr 'buffer'
-    call setline(e.lnum, replace[i])
-    if prev_bufnr != e.bufnr
+    if prev_bufnr != -1 && prev_bufnr != e.bufnr
       update
     endif
+    execute e.bufnr 'buffer'
+    call setline(e.lnum, replace[i])
     let prev_bufnr = e.bufnr
     let i += 1
   endfor
+  update
   execute bufnr 'buffer'
 endfunction
 

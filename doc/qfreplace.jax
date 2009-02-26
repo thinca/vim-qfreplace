@@ -1,6 +1,6 @@
 *qfreplace.txt*	quickfixに対して置換を行います。
 
-Version: 0.1
+Version: 0.2
 Author : thinca <http://d.hatena.ne.jp/thinca/>
 License: クリエイティブ・コモンズの表示 2.1 日本ライセンス
          <http://creativecommons.org/licenses/by/2.1/jp/>
@@ -37,6 +37,9 @@ g:qfreplace_open_cmd		(default: "split")
 
 ==============================================================================
 更新履歴					*qfreplace-changelog*
+
+0.2	2009-02-26
+	- 修正: :update のタイミングがおかしかった。
 
 0.1	2008-11-06
 	- 初版。

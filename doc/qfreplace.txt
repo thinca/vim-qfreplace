@@ -1,6 +1,6 @@
 *qfreplace.txt*	Perform the replacement in quickfix.
 
-Version: 0.1
+Version: 0.2
 Author : thinca <http://d.hatena.ne.jp/thinca/>
 License: Creative Commons Attribution 2.1 Japan License
          <http://creativecommons.org/licenses/by/2.1/jp/deed.en>
@@ -35,6 +35,9 @@ g:qfreplace_open_cmd		(default: "split")
 
 ==============================================================================
 CHANGELOG					*qfreplace-changelog*
+
+0.2	2009-02-26
+	- Fix: A timing of :update was wrong.
 
 0.1	2008-11-06
 	- Initial version.
