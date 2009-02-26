@@ -46,20 +46,21 @@ function! s:do_replace()
   endif
 
   setlocal nomodified
+  let update = 'update' . (v:cmdbang ? '!' : '')
   let bufnr = bufnr('%')
   let replace = getline(0, '$')
   let i = 0
   let prev_bufnr = -1
   for e in qf
     if prev_bufnr != -1 && prev_bufnr != e.bufnr
-      update
+      execute update
     endif
     execute e.bufnr 'buffer'
     call setline(e.lnum, replace[i])
     let prev_bufnr = e.bufnr
     let i += 1
   endfor
-  update
+  execute update
   execute bufnr 'buffer'
 endfunction
 

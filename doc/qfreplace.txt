@@ -38,6 +38,7 @@ CHANGELOG					*qfreplace-changelog*
 0.2	2009-02-26
 	- Add: Set filetype "qfreplace" in replacement buffer.
 	- Change: Change the interface to command.
+	- Change: Use ! mark when writing.
 	- Fix: A timing of :update was wrong.
 
 0.1	2008-11-06
