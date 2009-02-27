@@ -4,4 +4,4 @@ endif
 let b:undo_ftplugin .= '| execute "delcommand Qfreplace"'
 
 
-command! -buffer Qfreplace call qfreplace#start()
+command! -nargs=? -buffer Qfreplace call qfreplace#start(<q-args>)

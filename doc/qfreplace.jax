@@ -1,10 +1,9 @@
 *qfreplace.txt*	quickfixに対して置換を行います。
 
-Version: 0.2
+Version: 0.3
 Author : thinca <http://d.hatena.ne.jp/thinca/>
 License: クリエイティブ・コモンズの表示 2.1 日本ライセンス
          <http://creativecommons.org/licenses/by/2.1/jp/>
-
 
 ==============================================================================
 概要						*qfreplace-introduction*
@@ -22,19 +21,17 @@ License: クリエイティブ・コモンズの表示 2.1 日本ライセンス
 ==============================================================================
 コマンド					*qfreplace-command*
 
-:Qfreplace					*:Qfreplace*
+:Qfreplace [cmd]				*:Qfreplace*
 			置換用のバッファを開きます。 |quickfix-window| 内での
-			み使用できます。
-
-==============================================================================
-設定						*qfreplace-settings*
-
-						*g:qfreplace_open_cmd*
-g:qfreplace_open_cmd		(default: "split")
-	置換バッファ用のウィンドウを開くコマンド。
+			み使用できます。[cmd] にはバッファを開くためのコマンド
+			を指定します。省略すると、 |:split| が使用されます。
 
 ==============================================================================
 更新履歴					*qfreplace-changelog*
+
+0.3	2009-02-27
+	- 変更: |:Qfreplace| に置換バッファを開くコマンドを指定する引数を追加。
+	- 変更: オプション g:qfreplace_open_cmd を削除。
 
 0.2	2009-02-26
 	- 追加: 置換バッファにファイルタイプ qfreplace を設定するようにした。
@@ -50,4 +47,4 @@ g:qfreplace_open_cmd		(default: "split")
 
 
 ==============================================================================
-vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl:nolist
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl

@@ -1,26 +1,23 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-if !exists('g:qfreplace_open_cmd')
-  let g:qfreplace_open_cmd = 'split'
-endif
 let s:qfreplace_bufnr = -1
 
-function! qfreplace#start()
-  call s:open_replace_window()
+function! qfreplace#start(cmd)
+  call s:open_replace_window(empty(a:cmd) ? 'split' : a:cmd)
 endfunction
 
-function! s:open_replace_window()
+function! s:open_replace_window(cmd)
   if bufexists(s:qfreplace_bufnr)
     let win = bufwinnr(s:qfreplace_bufnr)
     if 0 <= win
       execute win . 'wincmd w'
     else
-      execute g:qfreplace_open_cmd
+      execute a:cmd
       execute s:qfreplace_bufnr 'buffer'
     endif
   else
-    execute g:qfreplace_open_cmd
+    execute a:cmd
     enew
     setlocal noswapfile bufhidden=hide buftype=acwrite
     file `='[qfreplace]'`
