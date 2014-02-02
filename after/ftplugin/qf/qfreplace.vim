@@ -1,6 +1,6 @@
 " Perform the replacement in quickfix.
 " Version: 0.3
-" Author : thinca <http://d.hatena.ne.jp/thinca/>
+" Author : thinca <thinca+vim@gmail.com>
 " License: zlib License
 
 if !exists('b:undo_ftplugin')
