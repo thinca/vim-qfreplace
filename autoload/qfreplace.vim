@@ -61,8 +61,8 @@ function! s:do_replace()
       endif
       execute e.bufnr 'buffer'
     endif
-    if e.text != replace[i]
-      if getline(e.lnum) != e.text
+    if e.text !=# replace[i]
+      if getline(e.lnum) !=# e.text
         echoerr printf('Original text are changed: %s:%d', bufname(e.bufnr),
           \ e.lnum)
       else
