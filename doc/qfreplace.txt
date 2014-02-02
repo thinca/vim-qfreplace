@@ -1,6 +1,6 @@
 *qfreplace.txt*	Perform the replacement in quickfix.
 
-Version: 0.3
+Version: 0.4
 Author : thinca <thinca+vim@gmail.com>
 License: zlib License
 
@@ -27,6 +27,10 @@ COMMANDS					*qfreplace-command*
 
 ==============================================================================
 CHANGELOG					*qfreplace-changelog*
+
+0.4	2014-02-03
+	- Fix: The check of change was wrong.
+	- Change: Change the license.
 
 0.3	2009-02-27
 	- Change: Add an argument to open the replacement buffer to

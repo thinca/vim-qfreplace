@@ -1,5 +1,5 @@
 " Perform the replacement in quickfix.
-" Version: 0.3
+" Version: 0.4
 " Author : thinca <thinca+vim@gmail.com>
 " License: zlib License
 

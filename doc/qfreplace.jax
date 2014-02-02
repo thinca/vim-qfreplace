@@ -1,6 +1,6 @@
 *qfreplace.txt*	quickfixに対して置換を行います。
 
-Version: 0.3
+Version: 0.4
 Author : thinca <thinca+vim@gmail.com>
 License: zlib License
 
@@ -27,6 +27,10 @@ License: zlib License
 
 ==============================================================================
 更新履歴					*qfreplace-changelog*
+
+0.4	2014-02-03
+	- 修正: 変更チェックが間違っていた。
+	- 変更: ライセンスを変更。
 
 0.3	2009-02-27
 	- 変更: |:Qfreplace| に置換バッファを開くコマンドを指定する引数を追加。
