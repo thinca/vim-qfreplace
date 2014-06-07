@@ -7,26 +7,29 @@ License: zlib License
 ==============================================================================
 INTRODUCTION					*qfreplace-introduction*
 
-*qfreplace* is a Vim plugin to perform the replacement in |quickfix-window|.
+*qfreplace* is a Vim plugin to perform the replacement in |quickfix|.
 For example, you can perform the replacement to results of |:grep|.
 
 ==============================================================================
 USAGE						*qfreplace-usage*
 
-Execute the |:Qfreplace| command in |quickfix-window| to open the replacement
-buffer.  A text of quickfix is inserted in the buffer by a line unit.  You can
-edit it freely.  Finally it is applied to a file when you save it.
+Execute the |:Qfreplace| command to open a buffer that for replacing the
+contents of |quickfix|.  A text of quickfix is inserted in the buffer by a
+line unit.  You can edit it freely.  Finally it is applied to a file when you
+save it.
 
 ==============================================================================
 COMMANDS					*qfreplace-command*
 
 :Qfreplace [cmd]				*:Qfreplace*
-			Open the replacement buffer.  You can use this only in
-			a |quickfix-window|.  Specify the command to open the
-			buffer in [cmd]. If omitted, use |:split|.
+			Open the replacement buffer.  Specify the command to
+			open the buffer in [cmd]. If omitted, use |:split|.
 
 ==============================================================================
 CHANGELOG					*qfreplace-changelog*
+
+next	xxxx-xx-xx
+	- |:Qfreplace| is available in global.
 
 0.4	2014-02-03
 	- Fix: The check of change was wrong.
