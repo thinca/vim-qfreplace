@@ -33,7 +33,7 @@ function! s:open_replace_window(cmd)
 
   % delete _
   let b:qfreplace_orig_qflist = getqflist()
-  for e in b:qfreplace_orig_qflist
+  for e in s:get_effectual_lines(b:qfreplace_orig_qflist)
     call append(line('$'), e.text)
   endfor
   1 delete _
@@ -41,7 +41,7 @@ function! s:open_replace_window(cmd)
 endfunction
 
 function! s:do_replace()
-  let qf = b:qfreplace_orig_qflist " for easily access
+  let qf = s:get_effectual_lines(b:qfreplace_orig_qflist)
   if line('$') != len(qf)
     let tp = 'qfreplace: Illegal edit: line number was changed from %d to %d.'
     call s:echoerr(printf(tp, len(qf), line('$')))
@@ -76,7 +76,15 @@ function! s:do_replace()
   endfor
   execute update
   execute bufnr 'buffer'
-  call setqflist(qf, 'r')
+  call setqflist(b:qfreplace_orig_qflist, 'r')
+endfunction
+
+function! s:get_effectual_lines(qf)
+  return filter(copy(a:qf), 's:is_effectual_line(v:val)')
+endfunction
+
+function! s:is_effectual_line(qf_line)
+  return get(a:qf_line, "bufnr", 0)
 endfunction
 
 function! s:echoerr(msg)

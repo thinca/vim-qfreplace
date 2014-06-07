@@ -31,6 +31,7 @@ CHANGELOG					*qfreplace-changelog*
 
 next	xxxx-xx-xx
 	- |:Qfreplace| is available in global.
+	- Ignore invalid lines in quickfix.
 
 0.4	2014-02-03
 	- Fix: The check of change was wrong.
