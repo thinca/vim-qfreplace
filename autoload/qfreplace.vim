@@ -62,7 +62,7 @@ function! s:do_replace()
     endif
     if e.text !=# replace[i]
       if getline(e.lnum) !=# e.text
-        echoerr printf('Original text are changed: %s:%d', bufname(e.bufnr),
+        echoerr printf('Original text has changed: %s:%d', bufname(e.bufnr),
           \ e.lnum)
       else
         call setline(e.lnum, replace[i])
