@@ -34,7 +34,7 @@ function! s:open_replace_window(cmd)
   % delete _
   let b:qfreplace_orig_qflist = getqflist()
   for e in s:get_effectual_lines(b:qfreplace_orig_qflist)
-    call append(line('$'), e.text)
+    call append(line('$'), s:chomp(e.text))
   endfor
   1 delete _
   setlocal nomodified
@@ -67,7 +67,7 @@ function! s:do_replace()
       execute e.bufnr 'buffer'
     endif
     if e.text !=# new_text
-      if getline(e.lnum) !=# e.text
+      if getline(e.lnum) !=# s:chomp(e.text)
         call s:echoerr(printf(
         \  'qfreplace: Original text has changed: %s:%d',
         \   bufname(e.bufnr), e.lnum))
@@ -95,6 +95,10 @@ function! s:echoerr(msg)
   echohl ErrorMsg
   echomsg a:msg
   echohl None
+endfunction
+
+function! s:chomp(str)
+  return matchstr(a:str, '^.\{-}\ze\r\?$')
 endfunction
 
 let &cpo = s:save_cpo
