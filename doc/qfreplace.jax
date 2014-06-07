@@ -1,6 +1,6 @@
 *qfreplace.txt*	quickfixに対して置換を行います。
 
-Version: 0.4
+Version: 0.5
 Author : thinca <thinca+vim@gmail.com>
 License: zlib License
 
@@ -29,7 +29,7 @@ License: zlib License
 ==============================================================================
 更新履歴					*qfreplace-changelog*
 
-next	xxxx-xx-xx
+0.5	2014-06-08
 	- |:Qfreplace| をいつでも実行できるようにした。
 	- quickfix の無効な行を無視するようにした。
 	- quickfix 内のテキストの末尾の \r を無視するようにした。
