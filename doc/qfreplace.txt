@@ -22,7 +22,8 @@ save it.
 COMMANDS					*qfreplace-command*
 
 :Qfreplace [cmd]				*:Qfreplace*
-			Open the replacement buffer.  Specify the command to
+			Open the replacement buffer.  The filetype of this
+			buffer is set as "qfreplace".  Specify the command to
 			open the buffer in [cmd]. If omitted, use |:split|.
 
 ==============================================================================
