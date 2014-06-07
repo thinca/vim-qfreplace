@@ -51,28 +51,32 @@ function! s:do_replace()
   setlocal nomodified
   let update = 'update' . (v:cmdbang ? '!' : '')
   let bufnr = bufnr('%')
-  let replace = getline(1, '$')
+  let new_text_lines = getline(1, '$')
   let i = 0
   let prev_bufnr = -1
   for e in qf
+    let new_text = new_text_lines[i]
+    let i += 1
+    if e.text ==# new_text
+      continue
+    endif
     if prev_bufnr != e.bufnr
       if prev_bufnr != -1
         execute update
       endif
       execute e.bufnr 'buffer'
     endif
-    if e.text !=# replace[i]
+    if e.text !=# new_text
       if getline(e.lnum) !=# e.text
         call s:echoerr(printf(
         \  'qfreplace: Original text has changed: %s:%d',
         \   bufname(e.bufnr), e.lnum))
       else
-        call setline(e.lnum, replace[i])
-        let e.text = replace[i]
+        call setline(e.lnum, new_text)
+        let e.text = new_text
       endif
     endif
     let prev_bufnr = e.bufnr
-    let i += 1
   endfor
   execute update
   execute bufnr 'buffer'

@@ -32,6 +32,7 @@ License: zlib License
 next	xxxx-xx-xx
 	- |:Qfreplace| をいつでも実行できるようにした。
 	- quickfix の無効な行を無視するようにした。
+	- パフォーマンスを改善。
 
 0.4	2014-02-03
 	- 修正: 変更チェックが間違っていた。
