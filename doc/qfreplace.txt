@@ -14,15 +14,15 @@ For example, you can perform the replacement to results of |:grep|.
 USAGE						*qfreplace-usage*
 
 Execute the |:Qfreplace| command in |quickfix-window| to open the replacement
-buffer.  A text of quickfix is inserted in the buffer by a line unit. You can
-edit it freely. Finally it is applied to a file when you save it.
+buffer.  A text of quickfix is inserted in the buffer by a line unit.  You can
+edit it freely.  Finally it is applied to a file when you save it.
 
 ==============================================================================
 COMMANDS					*qfreplace-command*
 
 :Qfreplace [cmd]				*:Qfreplace*
-			Open the replacement buffer. You can use this only in
-			a |quickfix-window|. Specify the command to open the
+			Open the replacement buffer.  You can use this only in
+			a |quickfix-window|.  Specify the command to open the
 			buffer in [cmd]. If omitted, use |:split|.
 
 ==============================================================================

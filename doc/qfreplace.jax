@@ -8,7 +8,7 @@ License: zlib License
 概要						*qfreplace-introduction*
 
 *qfreplace* は |quickfix-window| 内のテキストの置換を行う Vim プラグインです。
-例えば、 |:grep| の結果に対して置換を行い結果を適用することができます。
+例えば、|:grep| の結果に対して置換を行い結果を適用することができます。
 
 ==============================================================================
 使い方						*qfreplace-usage*
@@ -21,9 +21,9 @@ License: zlib License
 コマンド					*qfreplace-command*
 
 :Qfreplace [cmd]				*:Qfreplace*
-			置換用のバッファを開きます。 |quickfix-window| 内での
-			み使用できます。[cmd] にはバッファを開くためのコマンド
-			を指定します。省略すると、 |:split| が使用されます。
+			置換用のバッファを開きます。|quickfix-window| 内でのみ
+			使用できます。[cmd] にはバッファを開くためのコマンドを
+			指定します。省略すると、|:split| が使用されます。
 
 ==============================================================================
 更新履歴					*qfreplace-changelog*
