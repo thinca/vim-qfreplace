@@ -43,8 +43,9 @@ endfunction
 function! s:do_replace()
   let qf = b:qfreplace_orig_qflist " for easily access
   if line('$') != len(qf)
-    throw printf('qfreplace: Illegal edit: line number was changed from %d to %d.',
-          \ len(qf), line('$'))
+    let tp = 'qfreplace: Illegal edit: line number was changed from %d to %d.'
+    call s:echoerr(printf(tp, len(qf), line('$')))
+    return
   endif
 
   setlocal nomodified
@@ -62,9 +63,9 @@ function! s:do_replace()
     endif
     if e.text !=# replace[i]
       if getline(e.lnum) !=# e.text
-        echoerr printf(
+        call s:echoerr(printf(
         \  'qfreplace: Original text has changed: %s:%d',
-        \   bufname(e.bufnr), e.lnum)
+        \   bufname(e.bufnr), e.lnum))
       else
         call setline(e.lnum, replace[i])
         let e.text = replace[i]
@@ -76,6 +77,12 @@ function! s:do_replace()
   execute update
   execute bufnr 'buffer'
   call setqflist(qf, 'r')
+endfunction
+
+function! s:echoerr(msg)
+  echohl ErrorMsg
+  echomsg a:msg
+  echohl None
 endfunction
 
 let &cpo = s:save_cpo
