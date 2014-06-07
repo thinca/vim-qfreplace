@@ -51,7 +51,7 @@ function! s:do_replace()
   setlocal nomodified
   let update = 'update' . (v:cmdbang ? '!' : '')
   let bufnr = bufnr('%')
-  let replace = getline(0, '$')
+  let replace = getline(1, '$')
   let i = 0
   let prev_bufnr = -1
   for e in qf
