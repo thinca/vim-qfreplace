@@ -68,9 +68,14 @@ function! s:do_replace()
     endif
     if e.text !=# new_text
       if getline(e.lnum) !=# s:chomp(e.text)
-        call s:echoerr(printf(
-        \  'qfreplace: Original text has changed: %s:%d',
-        \   bufname(e.bufnr), e.lnum))
+        if getline(e.lnum) ==# new_text
+          " Original text has changed, but the changed one is equal to
+          " `new_text`. It is not an error.
+        else
+          call s:echoerr(printf(
+          \  'qfreplace: Original text has changed: %s:%d',
+          \   bufname(e.bufnr), e.lnum))
+        endif
       else
         call setline(e.lnum, new_text)
         let e.text = new_text
