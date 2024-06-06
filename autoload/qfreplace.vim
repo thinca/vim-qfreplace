@@ -51,7 +51,7 @@ function! s:do_replace()
   setlocal nomodified
   let after = 'update' . (v:cmdbang ? '!' : '')
   if &hidden && get(g:, 'qfreplace_no_save', 0)
-    let after = 'setlocal buflisted'
+    let after = 'if &modified | setlocal buflisted | endif'
   endif
   let bufnr = bufnr('%')
   let new_text_lines = getline(1, '$')
