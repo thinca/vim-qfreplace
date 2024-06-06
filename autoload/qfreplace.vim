@@ -49,7 +49,10 @@ function! s:do_replace()
   endif
 
   setlocal nomodified
-  let update = 'update' . (v:cmdbang ? '!' : '')
+  let after = 'update' . (v:cmdbang ? '!' : '')
+  if &hidden && get(g:, 'qfreplace_no_save', 0)
+    let after = 'if &modified | setlocal buflisted | endif'
+  endif
   let bufnr = bufnr('%')
   let new_text_lines = getline(1, '$')
   let i = 0
@@ -62,7 +65,7 @@ function! s:do_replace()
     endif
     if prev_bufnr != e.bufnr
       if prev_bufnr != -1
-        execute update
+        execute after
       endif
       execute e.bufnr 'buffer'
     endif
@@ -83,7 +86,7 @@ function! s:do_replace()
     endif
     let prev_bufnr = e.bufnr
   endfor
-  execute update
+  execute after
   execute bufnr 'buffer'
   call setqflist(b:qfreplace_orig_qflist, 'r')
 endfunction

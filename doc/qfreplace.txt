@@ -27,7 +27,21 @@ COMMANDS					*qfreplace-command*
 			open the buffer in [cmd]. If omitted, use |:split|.
 
 ==============================================================================
+OPTIONS						*qfreplace-option*
+
+g:qfreplace_no_save				*g:qfreplace_no_save*
+			If this variable is set to 1 and the |'hidden'|
+			option is enabled, the replacement is only applied to
+			the buffers, but the changes will not be saved.
+			After replacement, you should do |:wall| to save all
+			changes.
+			The default value is 0.
+
+==============================================================================
 CHANGELOG					*qfreplace-changelog*
+
+0.6	2024-06-06
+	- Add: Add g:qfreplace_no_save option.
 
 0.5	2014-06-08
 	- |:Qfreplace| is available in global.
