@@ -40,6 +40,9 @@ g:qfreplace_no_save				*g:qfreplace_no_save*
 ==============================================================================
 更新履歴					*qfreplace-changelog*
 
+0.6	2024-06-06
+	- 追加: オプション g:qfreplace_no_save を追加。
+
 0.5	2014-06-08
 	- |:Qfreplace| をいつでも実行できるようにした。
 	- quickfix の無効な行を無視するようにした。

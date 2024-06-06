@@ -40,6 +40,9 @@ g:qfreplace_no_save				*g:qfreplace_no_save*
 ==============================================================================
 CHANGELOG					*qfreplace-changelog*
 
+0.6	2024-06-06
+	- Add: Add g:qfreplace_no_save option.
+
 0.5	2014-06-08
 	- |:Qfreplace| is available in global.
 	- Ignore invalid lines in quickfix.
