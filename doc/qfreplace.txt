@@ -1,6 +1,6 @@
 *qfreplace.txt*	Perform the replacement in quickfix.
 
-Version: 0.5
+Version: 0.6
 Author : thinca <thinca+vim@gmail.com>
 License: zlib License
 
